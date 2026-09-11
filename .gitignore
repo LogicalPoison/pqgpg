@@ -1,0 +1,30 @@
+# Build
+build/
+cmake-build-*/
+out/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Keyrings / secrets (never commit)
+.pqgpg/
+*.pqg
+
+# liboqs is a submodule – ignore local build artifacts inside it
+third_party/liboqs/build/
+third_party/liboqs/.git/
+
+# Python / misc
+__pycache__/
+*.pyc
+/dist
