@@ -31,10 +31,12 @@ jobs:
         shell: bash
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+            version="${{ inputs.version }}"
           else
-            echo "version=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+            version="${{ github.ref_name }}"
           fi
+          version="${version#v}"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
 
       - name: Build (cross-compile via pwsh)
         shell: pwsh
